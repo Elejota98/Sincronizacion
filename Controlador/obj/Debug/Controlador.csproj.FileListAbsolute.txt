@@ -1,0 +1,22 @@
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Controlador.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Controlador.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Modelo.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Servicios.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Modelo.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\bin\Debug\Servicios.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\obj\Debug\Controlador.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\obj\Debug\Controlador.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Controlador.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Controlador.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Modelo.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Servicios.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Modelo.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\bin\Debug\Servicios.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.pdb

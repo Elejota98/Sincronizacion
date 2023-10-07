@@ -1,0 +1,12 @@
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\bin\Debug\Modelo.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\bin\Debug\Modelo.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\obj\Debug\Modelo.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\obj\Debug\Modelo.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\bin\Debug\Modelo.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\bin\Debug\Modelo.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.pdb

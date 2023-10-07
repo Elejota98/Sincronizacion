@@ -1,0 +1,34 @@
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\obj\Debug\Servicios.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\Servicios.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\Servicios.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\Modelo.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.AccessControl.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.Permissions.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\Modelo.pdb
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.AccessControl.xml
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.Permissions.xml
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.CopyComplete
+C:\Users\admin\Documents\RED UNAB\SincronizacionUnab\Servicios\obj\Debug\Servicios.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\Servicios.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\Servicios.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\Modelo.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.AccessControl.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.Permissions.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.Principal.Windows.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\Modelo.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.AccessControl.xml
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.Permissions.xml
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\bin\Debug\System.Security.Principal.Windows.xml
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\obj\Debug\Servicios.csproj.CopyComplete
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\obj\Debug\Servicios.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Servicios\obj\Debug\Servicios.pdb
