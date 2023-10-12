@@ -48,10 +48,10 @@ namespace Controlador
                     Mapeo(transaccionesAutorizadosRedLocal, transaccionesAutorizadosRed);
 
                     transaccionesAutorizadosRed.IdEstacionamiento8 = 0;
-                    transaccionesAutorizadosRed.IdEstacionamiento9 = 0;
-                    transaccionesAutorizadosRed.IdEstacionamiento10 = 0;
+                    transaccionesAutorizadosRed.IdEstacionamiento9 = 1;
+                    transaccionesAutorizadosRed.IdEstacionamiento10 =0;
                     transaccionesAutorizadosRed.IdEstacionamiento11 = 0;
-                    transaccionesAutorizadosRed.IdEstacionamiento12 = 1;
+                    transaccionesAutorizadosRed.IdEstacionamiento12 = 0;
 
                     tabla = Datos.ValidarSiExisteTransaccionEnLaNube(transaccionesAutorizadosRed);
                     if (tabla.Rows.Count > 0)
@@ -71,7 +71,11 @@ namespace Controlador
                             rta = Datos.ActualizaEstadoSincronizacion(transaccionesAutorizadosRedLocal);
                             if (rta.Equals("OK"))
                             {
-                                rta = "OK";
+                                rta = Datos.ActualizaEstadoSincronizacionEnCola(transaccionesAutorizadosRedLocal);
+                                if (rta.Equals("OK"))
+                                {
+                                    rta = "OK";
+                                }
                             }
                             else
                             {
@@ -169,6 +173,10 @@ namespace Controlador
                         transaccionesAutorizadosRed.IdEstacionamiento10 = Convert.ToInt64(lstDatos["IdEstacionamiento10"]);
                         transaccionesAutorizadosRed.IdEstacionamiento11 = Convert.ToInt64(lstDatos["IdEstacionamiento11"]);
                         transaccionesAutorizadosRed.IdEstacionamiento12 = Convert.ToInt64(lstDatos["IdEstacionamiento12"]);
+                        if (transaccionesAutorizadosRed.ModuloSalida == "")
+                        {
+                            transaccionesAutorizadosRed.ModuloSalida = "NULL";
+                        }
                     }
 
                     Mapeo(transaccionesAutorizadosRed, transaccionesAutorizadosRedLocal);

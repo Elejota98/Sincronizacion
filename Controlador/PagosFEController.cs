@@ -20,31 +20,45 @@ namespace Controlador
             int idTipoPagoNew = 0;
             try
             {
-                tabla = Datos.ConsultarPagosFE();
-                if (tabla.Rows.Count > 0)
+                do
                 {
-                    foreach (DataRow lstDatos in tabla.Rows)
+                    tabla = Datos.ConsultarPagosFE();
+                    if (tabla.Rows.Count > 0)
                     {
-                        pagosFE.IdPago = Convert.ToInt64(lstDatos["IdPago"]);
-                        pagosFE.IdTransaccion = lstDatos["IdTransaccion"].ToString();
-                        pagosFE.IdAutorizado = lstDatos["IdAutorizado"] != DBNull.Value ? Convert.ToInt32(lstDatos["IdAutorizado"]) : (int?)null;
-                        pagosFE.IdEstacionamiento = Convert.ToInt64(lstDatos["IdEstacionamiento"]);
-                        if (pagosFE.IdAutorizado != null)
+                        foreach (DataRow lstDatos in tabla.Rows)
                         {
-                            if (pagosFE.IdAutorizado > 0)
+                            pagosFE.IdPago = Convert.ToInt64(lstDatos["IdPago"]);
+                            pagosFE.IdTransaccion = lstDatos["IdTransaccion"].ToString();
+                            pagosFE.IdAutorizado = lstDatos["IdAutorizado"] != DBNull.Value ? Convert.ToInt32(lstDatos["IdAutorizado"]) : (int?)null;
+                            pagosFE.IdEstacionamiento = Convert.ToInt64(lstDatos["IdEstacionamiento"]);
+                            if (pagosFE.IdAutorizado != null)
                             {
-                                tabla = Datos.ObtenerIdTipoPagoYTipoVehiculoAutorizacion(pagosFE);
-                                if (tabla.Rows.Count > 0)
+                                if (pagosFE.IdAutorizado > 0)
                                 {
-                                    foreach (DataRow lstDatosIds in tabla.Rows)
+                                    tabla = Datos.ObtenerIdTipoPagoYTipoVehiculoAutorizacion(pagosFE);
+                                    if (tabla.Rows.Count > 0)
                                     {
-                                        pagosFE.IdTipoPago = Convert.ToInt32(lstDatosIds["IdTipoPago"]);
-                                        pagosFE.IdTipoVehiculo = Convert.ToInt32(lstDatosIds["IdTipoVehiculo"]);
+                                        foreach (DataRow lstDatosIds in tabla.Rows)
+                                        {
+                                            pagosFE.IdTipoPago = Convert.ToInt32(lstDatosIds["IdTipoPago"]);
+                                            pagosFE.IdTipoVehiculo = Convert.ToInt32(lstDatosIds["IdTipoVehiculo"]);
+                                        }
+                                    }
+
+                                }
+                                else if (pagosFE.IdAutorizado == 0)
+                                {
+                                    tabla = Datos.ObtenerIdTipoVehiculoPorHoras(pagosFE);
+                                    if (tabla.Rows.Count > 0)
+                                    {
+                                        foreach (DataRow lstDatosIds in tabla.Rows)
+                                        {
+                                            pagosFE.IdTipoVehiculo = Convert.ToInt32(lstDatosIds["IdTipoVehiculo"]);
+                                        }
                                     }
                                 }
-
                             }
-                            else if(pagosFE.IdAutorizado==0)
+                            else
                             {
                                 tabla = Datos.ObtenerIdTipoVehiculoPorHoras(pagosFE);
                                 if (tabla.Rows.Count > 0)
@@ -55,76 +69,66 @@ namespace Controlador
                                     }
                                 }
                             }
+                            pagosFE.IdModulo = lstDatos["IdModulo"].ToString();
+                            pagosFE.IdFacturacion = Convert.ToInt64(lstDatos["IdFacturacion"]);
+                            pagosFE.IdTipoPago = Convert.ToInt64(lstDatos["IdTipoPago"]);
+                            pagosFE.FechaPago = Convert.ToDateTime(lstDatos["FechaPago"]);
+                            pagosFE.Subtotal = Convert.ToInt32(lstDatos["Subtotal"]);
+                            pagosFE.Iva = Convert.ToInt32(lstDatos["Iva"]);
+                            pagosFE.Total = Convert.ToInt32(lstDatos["Total"]);
+                            pagosFE.NumeroFactura = Convert.ToInt32(lstDatos["NumeroFactura"]);
+                            pagosFE.Sincronizacion = Convert.ToBoolean(lstDatos["Sincronizacion"]);
+                            pagosFE.PagoMensual = Convert.ToBoolean(lstDatos["PagoMensual"]);
+                            pagosFE.Anulada = Convert.ToBoolean(lstDatos["Anulada"]);
+                            pagosFE.Estado = Convert.ToBoolean(lstDatos["Estado"]);
+                            pagosFE.Identificacion = Convert.ToInt32(lstDatos["Identificacion"]);
+
                         }
-                        else
+                        rta = Datos.InsertarPagosFENube(pagosFE);
+
+                        if (pagosFE.IdTipoPago == 6)
                         {
-                            tabla = Datos.ObtenerIdTipoVehiculoPorHoras(pagosFE);
-                            if (tabla.Rows.Count > 0)
-                            {
-                                foreach (DataRow lstDatosIds in tabla.Rows)
-                                {
-                                    pagosFE.IdTipoVehiculo = Convert.ToInt32(lstDatosIds["IdTipoVehiculo"]);
-                                }
-                            }
+                            idTipoPagoNew = 5;
                         }
-                        pagosFE.IdModulo = lstDatos["IdModulo"].ToString();
-                        pagosFE.IdFacturacion = Convert.ToInt64(lstDatos["IdFacturacion"]);
-                        pagosFE.IdTipoPago = Convert.ToInt64(lstDatos["IdTipoPago"]);
-                        pagosFE.FechaPago = Convert.ToDateTime(lstDatos["FechaPago"]);
-                        pagosFE.Subtotal = Convert.ToInt32(lstDatos["Subtotal"]);
-                        pagosFE.Iva = Convert.ToInt32(lstDatos["Iva"]);
-                        pagosFE.Total = Convert.ToInt32(lstDatos["Total"]);
-                        pagosFE.NumeroFactura = Convert.ToInt32(lstDatos["NumeroFactura"]);
-                        pagosFE.Sincronizacion = Convert.ToBoolean(lstDatos["Sincronizacion"]);
-                        pagosFE.PagoMensual = Convert.ToBoolean(lstDatos["PagoMensual"]);
-                        pagosFE.Anulada = Convert.ToBoolean(lstDatos["Anulada"]);
-                        pagosFE.Estado = Convert.ToBoolean(lstDatos["Estado"]);
-                        pagosFE.Identificacion = Convert.ToInt32(lstDatos["Identificacion"]);
+                        if (pagosFE.IdTipoPago == 3)
+                        {
+                            idTipoPagoNew = 6;
+                        }
 
-                    }
+                        if (pagosFE.IdTipoPago == 1 && pagosFE.IdTipoVehiculo == 1)
+                        {
+                            idTipoPagoNew = 3;
+                        }
+                        else if (pagosFE.IdTipoPago == 1 && pagosFE.IdTipoVehiculo == 2)
+                        {
+                            idTipoPagoNew = 4;
+                        }
+                        if (pagosFE.IdTipoPago == 2 && pagosFE.IdTipoVehiculo == 1)
+                        {
+                            idTipoPagoNew = 1;
+                        }
+                        if (pagosFE.IdTipoPago == 2 && pagosFE.IdTipoVehiculo == 2)
+                        {
+                            idTipoPagoNew = 2;
+                        }
+                        pagosFE.IdTipoPago = idTipoPagoNew;
 
-                    if (pagosFE.IdTipoPago == 6)
-                    {
-                        idTipoPagoNew = 5;
-                    }
-                    if (pagosFE.IdTipoPago == 3)
-                    {
-                        idTipoPagoNew = 6;
-                    }
-                   
-                    if (pagosFE.IdTipoPago == 1 && pagosFE.IdTipoVehiculo==1)
-                    {
-                        idTipoPagoNew = 3;
-                    }
-                   else if(pagosFE.IdTipoPago==1 && pagosFE.IdTipoVehiculo == 2)
-                    {
-                        idTipoPagoNew = 4;
-                    }
-                    if(pagosFE.IdTipoPago == 2 && pagosFE.IdTipoVehiculo == 1)
-                    {
-                        idTipoPagoNew = 1;
-                    }
-                    if(pagosFE.IdTipoPago==2 && pagosFE.IdTipoVehiculo == 2)
-                    {
-                        idTipoPagoNew = 2;
-                    }
-                 pagosFE.IdTipoPago = idTipoPagoNew;
-
-                    rta = Datos.InsertarPagosFE(pagosFE);
-                    if (rta.Equals("OK"))
-                    {
-                        rta = Datos.ActualizaEstadoPagos(pagosFE);
+                        rta = Datos.InsertarPagosFE(pagosFE);
                         if (rta.Equals("OK"))
                         {
-                            rta = "OK";
-                        }
-                        else
-                        {
-                            rta = rta.ToString();
+                            rta = Datos.ActualizaEstadoPagos(pagosFE);
+                            if (rta.Equals("OK"))
+                            {
+                                rta = "OK";
+                            }
+                            else
+                            {
+                                rta = rta.ToString();
+                            }
                         }
                     }
-                    
                 }
+                while (tabla.Rows.Count > 0);
 
             }
             catch (Exception ex )

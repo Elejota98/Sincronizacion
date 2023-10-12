@@ -25,6 +25,7 @@ namespace SincronizacionUnab
         private Timer oTimer;
         TransaccionesAutorizadosRed transaccionesAutorizadosRed = new TransaccionesAutorizadosRed();
         TransaccionesAutorizadosRedLocal transaccionesAutorizadosRedLocal = new TransaccionesAutorizadosRedLocal();
+        FacturasContingencia facturasContingencia = new FacturasContingencia();
 
         private static int _PeriodoEjecucionSegundos
         {
@@ -92,16 +93,29 @@ namespace SincronizacionUnab
                 {
                     transaccionesAutorizadosRed.IdEstacionamiento = _IdEstacionamiento;
                     transaccionesAutorizadosRedLocal.IdEstacionamiento = _IdEstacionamiento;
+                    facturasContingencia.IdEstacionamiento = _IdEstacionamiento;
 
                     PersonasAutorizadasController.SincronizarPersonasAutorizadasSubida();
                     PersonasAutorizadasController.SincronizarPersonasAutorizadasBajada();
 
-                    ClientesController.SincronizarClientes();
+                    rta =  ClientesController.SincronizarClientes();
+                    if (rta.Equals("OK"))
+                    {
+
+                    }
 
                     TransaccionesAutorizadosController.SincronizarTransaccionesSubida(transaccionesAutorizadosRedLocal);
                     TransaccionesAutorizadosController.SincronizarTransaccionesBajada(transaccionesAutorizadosRed);
 
-                    PagosFEController.SincronizaPagosFE();
+                     rta = PagosFEController.SincronizaPagosFE();
+                    if (rta.Equals("OK"))
+                    {
+
+                    }
+
+                    if (PagosContingenciaController.SincronizarPagosContingencia(facturasContingencia))
+                    {
+                    }
 
 
 

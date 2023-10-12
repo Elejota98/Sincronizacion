@@ -36,7 +36,7 @@ namespace Servicios
             try
             {
                 sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
-                string cadena = ("SELECT TOP(1) * FROM T_FacturasContingencia WHERE Sincronizacion=0 amd IdEstacionamiento='"+facturasContingencia+"' ");
+                string cadena = ("SELECT TOP(1) * FROM T_FacturasContingencia WHERE Sincronizacion=0 and IdEstacionamiento='"+facturasContingencia.IdEstacionamiento+"' ");
                 SqlCommand comando = new SqlCommand(cadena, sqlCon);
                 sqlCon.Open();
                 rta = comando.ExecuteReader();
@@ -53,6 +53,96 @@ namespace Servicios
             {
                 if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
             }
+        }
+
+        public string InsertarFacturasContingencia(FacturasContingencia facturasContingencia)
+        {
+            string rta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = RepositorioConexion.getInstancia().CrearConexionNubeFacturacionElectronica();
+                string cadena = "INSERT INTO T_FacturasContingencia (IdModulo, IdEstacionamiento, FechaPago, Subtotal, Iva, Total, Prefijo, IdTipoPago, NumeroFactura, Observaciones, " +
+                    "IdTipoVehiculo,IdentificacionCliente, DocumentoUsuario, Sincronizacion)" +
+                    " VALUES ('" + facturasContingencia.IdModulo + "', " + facturasContingencia.IdEstacionamiento + ", '" + facturasContingencia.FechaPago.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
+                    " '" + facturasContingencia.Subtotal + "', '" + facturasContingencia.Iva + "', '" + facturasContingencia.Total + "', '" + facturasContingencia.Prefijo + "'," +
+                    " '" + facturasContingencia.IdTipoPago + "', '" + facturasContingencia.NumeroFactura + "',  '"+facturasContingencia.Observaciones+"', '" + facturasContingencia.IdTipoVehiculo + "', '"+facturasContingencia.IdentificacionCliente+"','" + facturasContingencia.DocumentoUsuario + "'," +
+                    " 0)";
+                SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                rta = "OK";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return rta;
+        }
+
+        public string InsertarFacturasContingenciaNube(FacturasContingencia facturasContingencia)
+        {
+            string rta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = RepositorioConexion.getInstancia().CrearConexionNube();
+                string cadena = "INSERT INTO T_FacturasContingencia (IdModulo, IdEstacionamiento, FechaPago, Subtotal, Iva, Total, Prefijo, IdTipoPago, NumeroFactura, Observaciones, " +
+                    "IdTipoVehiculo,IdentificacionCliente, DocumentoUsuario, Sincronizacion)" +
+                    " VALUES ('" + facturasContingencia.IdModulo + "', " + facturasContingencia.IdEstacionamiento + ", '" + facturasContingencia.FechaPago.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
+                    " '" + facturasContingencia.Subtotal + "', '" + facturasContingencia.Iva + "', '" + facturasContingencia.Total + "', '" + facturasContingencia.Prefijo + "'," +
+                    " '" + facturasContingencia.IdTipoPago + "', '" + facturasContingencia.NumeroFactura + "',  '" + facturasContingencia.Observaciones + "', '" + facturasContingencia.IdTipoVehiculo + "', '" + facturasContingencia.IdentificacionCliente + "','" + facturasContingencia.DocumentoUsuario + "'," +
+                    " 0)";
+                SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                rta = "OK";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return rta;
+        }
+        public string ActualizarEstadoSincronizacionContingencia(FacturasContingencia facturasContingencia)
+        {
+            string rta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
+                string cadena = ("UPDATE T_FacturasContingencia SET Sincronizacion=1 WHERE IdPago=" + facturasContingencia.IdPago + "");
+                SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                rta = "OK";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return rta;
         }
     }
 }

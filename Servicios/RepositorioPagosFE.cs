@@ -145,6 +145,36 @@ namespace Servicios
             return rta;
         }
 
+        public string InsertarPagosFENube(PagosFE pagosFE)
+        {
+            string rta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                pagosFE.Sincronizacion = true;
+                sqlCon = RepositorioConexion.getInstancia().CrearConexionNube();
+                string cadena = ("INSERT INTO T_PagosFE (IdTransaccion,IdAutorizado,IdEstacionamiento,IdModulo,IdFacturacion,IdTipoPago,FechaPago,Subtotal,Iva,Total,NumeroFactura,Sincronizacion,PagoMensual,Anulada) " +
+                    "VALUES(" + pagosFE.IdTransaccion + ", '" + pagosFE.IdAutorizado + "', '" + pagosFE.IdEstacionamiento + "', '" + pagosFE.IdModulo + "', '" + pagosFE.IdFacturacion + "'," +
+                    "'" + pagosFE.IdTipoPago + "', '" + pagosFE.FechaPago.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + pagosFE.Subtotal + "', '" + pagosFE.Iva + "', '" + pagosFE.Total + "', '" + pagosFE.NumeroFactura + "',1,0,0)");
+                SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                rta = "OK";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return rta;
+        }
+
         public string ActualizaEstadoPagos(PagosFE pagosFE)
         {
             string rta = "";

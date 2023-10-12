@@ -1,4 +1,5 @@
 ﻿using Controlador;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace Sincronizacion
         private static Sincronizacion Agente = new Sincronizacion();
         public string rta = string.Empty;
         private Timer oTimer;
-
+        FacturasContingencia facturasContingencia = new FacturasContingencia();
         private static int _PeriodoEjecucionSegundos
         {
             get
@@ -57,7 +58,7 @@ namespace Sincronizacion
 
         public Sincronizacion()
         {
-            oTimer = new Timer(2 * 1000);
+            oTimer = new Timer(1 * 1000);
             oTimer.Elapsed += new ElapsedEventHandler(oTimer_Elapsed);
             InitializeComponent();
         }
@@ -87,16 +88,25 @@ namespace Sincronizacion
                 {
                     //transaccionesAutorizadosRed.IdEstacionamiento = _IdEstacionamiento;
                     //transaccionesAutorizadosRedLocal.IdEstacionamiento = _IdEstacionamiento;
+                    facturasContingencia.IdEstacionamiento = _IdEstacionamiento;
 
-                    //PersonasAutorizadasController.SincronizarPersonasAutorizadasSubida();
-                    //PersonasAutorizadasController.SincronizarPersonasAutorizadasBajada();
 
-                    ClientesController.SincronizarClientes();
+                    if (PagosContingenciaController.SincronizarPagosContingencia(facturasContingencia))
+                    {
+                    }
 
-                    //TransaccionesAutorizadosController.SincronizarTransaccionesSubida(transaccionesAutorizadosRedLocal);
-                    //TransaccionesAutorizadosController.SincronizarTransaccionesBajada(transaccionesAutorizadosRed);
+                    rta = PagosFEController.SincronizaPagosFE();
+                    if (rta.Equals("OK"))
+                    {
 
-                    PagosFEController.SincronizaPagosFE();
+                    }
+
+                    rta = ClientesController.SincronizarClientes();
+                    if (rta.Equals("OK"))
+                    {
+
+                    }
+                   
 
 
 

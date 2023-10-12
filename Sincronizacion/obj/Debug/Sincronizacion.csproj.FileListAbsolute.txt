@@ -1,0 +1,15 @@
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Sincronizacion.exe.config
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Sincronizacion.exe
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Sincronizacion.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Controlador.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Modelo.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Servicios.dll
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Controlador.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Modelo.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\bin\Debug\Servicios.pdb
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.csproj.AssemblyReference.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.csproj.SuggestedBindingRedirects.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.csproj.CopyComplete
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.exe
+D:\PROYECTOS\LJ\SincronizacionUnab\Sincronizacion\obj\Debug\Sincronizacion.pdb

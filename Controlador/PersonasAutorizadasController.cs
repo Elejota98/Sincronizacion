@@ -47,10 +47,10 @@ namespace Controlador
 
                     Mapeo(personasAutorizadasLocal, personasAutorizadasNube);
                     personasAutorizadasNube.IdEstacionamiento8 = 0;
-                    personasAutorizadasNube.IdEstacionamiento9 = 0;
+                    personasAutorizadasNube.IdEstacionamiento9 = 1;
                     personasAutorizadasNube.IdEstacionamiento10 = 0;
                     personasAutorizadasNube.IdEstacionamiento11 = 0;
-                    personasAutorizadasNube.IdEstacionamiento12 = 1;
+                    personasAutorizadasNube.IdEstacionamiento12 = 0;
                     personasAutorizadasNube.EstadoNew = Convert.ToBoolean(personasAutorizadasNube.Estado) ? 1 : 0;
 
 

@@ -8,6 +8,7 @@ namespace Modelo
 {
     public class FacturasContingencia
     {
+        public int IdPago { get; set; }
         public string IdModulo { get; set; }
         public int IdEstacionamiento { get; set; }
         public DateTime FechaPago { get; set; }

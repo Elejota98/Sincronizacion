@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Servicios
 {
@@ -114,7 +115,7 @@ namespace Servicios
                     "ModuloSalida ,CarrilSalida ,PlacaSalida ,IdTipoVehiculo ,IdAutorizado ,IdEstacionamiento8 ,IdEstacionamiento9 ,IdEstacionamiento10 ,IdEstacionamiento11 ,IdEstacionamiento12) " +
                     "    VALUES (" + transaccionesAutorizadosRed.IdTransaccion + " ,'" + transaccionesAutorizadosRed.CarrilEntrada + "'" +
                     " ,'" + transaccionesAutorizadosRed.ModuloEntrada + "' ," + transaccionesAutorizadosRed.IdEstacionamiento + " ,'" + transaccionesAutorizadosRed.IdTarjeta + "','" + transaccionesAutorizadosRed.PlacaEntrada + "'" +
-                    " ,'" + transaccionesAutorizadosRed.FechaEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRed.FechaSalida?.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRed.ModuloSalida + "' ,'" + transaccionesAutorizadosRed.CarrilSalida + "'" +
+                    " ,'" + transaccionesAutorizadosRed.FechaEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRed.FechaSalida?.ToString("yyyy-MM-dd HH:mm:ss") + "' ,NULL ,'" + transaccionesAutorizadosRed.CarrilSalida + "'" +
                     " ,'" + transaccionesAutorizadosRed.PlacaSalida + "' ," + transaccionesAutorizadosRed.IdTipoVehiculo + "," + transaccionesAutorizadosRed.IdAutorizado + " ," + transaccionesAutorizadosRed.IdEstacionamiento8 + "" +
                     " ," + transaccionesAutorizadosRed.IdEstacionamiento9 + " ," + transaccionesAutorizadosRed.IdEstacionamiento10 + " ," + transaccionesAutorizadosRed.IdEstacionamiento11 + " " +
                     "," + transaccionesAutorizadosRed.IdEstacionamiento12 + ")");
@@ -141,6 +142,27 @@ namespace Servicios
             {
                 sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
                 string cadena = ("UPDATE T_TransaccionesAutorizadosRed SET Sincronizacion=1 WHERE IdTransaccion=" + transaccionesAutorizadosRedLocal.IdTransaccion + "");
+                SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                rta = "OK";
+            }
+            catch (Exception ex)
+            {
+
+                rta = ex.ToString();
+            }
+            return rta;
+        }
+        public string ActualizaEstadoSincronizacionEnCola(TransaccionesAutorizadosRedLocal transaccionesAutorizadosRedLocal)
+        {
+            string rta = string.Empty;
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
+                string cadena = ("UPDATE T_TransaccionesAutorizadosRed SET Sincronizacion = 1 WHERE IdEstacionamiento = '"+transaccionesAutorizadosRedLocal.IdEstacionamiento+"'" +
+                    " AND FechaEntrada < DATEADD(MINUTE, -5, GETDATE()) AND ModuloSalida IS NULL");
                 SqlCommand comando = new SqlCommand(cadena, sqlCon);
                 sqlCon.Open();
                 comando.ExecuteNonQuery();
@@ -232,17 +254,36 @@ namespace Servicios
             SqlConnection sqlCon = new SqlConnection();
             try
             {
-                sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
-                string cadena = ("    INSERT INTO T_TransaccionesAutorizadosRed (IdTransaccion, CarrilEntrada,  ModuloEntrada, IdEstacionamiento,IdTarjeta," +
-                    " PlacaEntrada,FechaEntrada, FechaSalida, ModuloSalida, CarrilSalida, PlacaSalida, IdTipoVehiculo, IdAutorizado,  Sincronizacion) " +
-                    "    VALUES (" + transaccionesAutorizadosRedLocal.IdTransaccion + " ,'" + transaccionesAutorizadosRedLocal.CarrilEntrada + "'" +
-                    " ,'" + transaccionesAutorizadosRedLocal.ModuloEntrada + "' ," + transaccionesAutorizadosRedLocal.IdEstacionamiento + " ,'" + transaccionesAutorizadosRedLocal.IdTarjeta + "','" + transaccionesAutorizadosRedLocal.PlacaEntrada + "'" +
-                    " ,'" + transaccionesAutorizadosRedLocal.FechaEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRedLocal.FechaSalida?.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRedLocal.ModuloSalida + "' ,'" + transaccionesAutorizadosRedLocal.CarrilSalida + "'" +
-                    " ,'" + transaccionesAutorizadosRedLocal.PlacaSalida + "' ," + transaccionesAutorizadosRedLocal.IdTipoVehiculo + ", " + transaccionesAutorizadosRedLocal.IdAutorizado + ", 1)");
-                SqlCommand comando = new SqlCommand(cadena, sqlCon);
-                sqlCon.Open();
-                comando.ExecuteNonQuery();
-                rta = "OK";
+                if (transaccionesAutorizadosRedLocal.ModuloSalida != string.Empty)
+                {
+                    sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
+                    string cadena = ("INSERT INTO T_TransaccionesAutorizadosRed (IdTransaccion, CarrilEntrada,  ModuloEntrada, IdEstacionamiento,IdTarjeta," +
+                        " PlacaEntrada,FechaEntrada, FechaSalida, ModuloSalida, CarrilSalida, PlacaSalida, IdTipoVehiculo, IdAutorizado,  Sincronizacion) " +
+                        "    VALUES (" + transaccionesAutorizadosRedLocal.IdTransaccion + " ,'" + transaccionesAutorizadosRedLocal.CarrilEntrada + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.ModuloEntrada + "' ," + transaccionesAutorizadosRedLocal.IdEstacionamiento + " ,'" + transaccionesAutorizadosRedLocal.IdTarjeta + "','" + transaccionesAutorizadosRedLocal.PlacaEntrada + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.FechaEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRedLocal.FechaSalida?.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRedLocal.ModuloSalida + "' ,'" + transaccionesAutorizadosRedLocal.CarrilSalida + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.PlacaSalida + "' ," + transaccionesAutorizadosRedLocal.IdTipoVehiculo + ", " + transaccionesAutorizadosRedLocal.IdAutorizado + ", 1)");
+                    SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                    sqlCon.Open();
+                    comando.ExecuteNonQuery();
+                    rta = "OK";
+                }
+                else
+                {
+                    sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
+                    string cadena = ("INSERT INTO T_TransaccionesAutorizadosRed (IdTransaccion, CarrilEntrada,  ModuloEntrada, IdEstacionamiento,IdTarjeta," +
+                        " PlacaEntrada,FechaEntrada, FechaSalida, ModuloSalida, CarrilSalida, PlacaSalida, IdTipoVehiculo, IdAutorizado,  Sincronizacion) " +
+                        "    VALUES (" + transaccionesAutorizadosRedLocal.IdTransaccion + " ,'" + transaccionesAutorizadosRedLocal.CarrilEntrada + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.ModuloEntrada + "' ," + transaccionesAutorizadosRedLocal.IdEstacionamiento + " ,'" + transaccionesAutorizadosRedLocal.IdTarjeta + "','" + transaccionesAutorizadosRedLocal.PlacaEntrada + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.FechaEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + transaccionesAutorizadosRedLocal.FechaSalida?.ToString("yyyy-MM-dd HH:mm:ss") + "' ," + transaccionesAutorizadosRedLocal.ModuloSalida + " ,'" + transaccionesAutorizadosRedLocal.CarrilSalida + "'" +
+                        " ,'" + transaccionesAutorizadosRedLocal.PlacaSalida + "' ," + transaccionesAutorizadosRedLocal.IdTipoVehiculo + ", " + transaccionesAutorizadosRedLocal.IdAutorizado + ", 1)");
+                    SqlCommand comando = new SqlCommand(cadena, sqlCon);
+                    sqlCon.Open();
+                    comando.ExecuteNonQuery();
+                    rta = "OK";
+                }
+
+
             }
             catch (Exception ex)
             {
