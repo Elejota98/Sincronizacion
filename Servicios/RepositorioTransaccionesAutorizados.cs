@@ -254,7 +254,7 @@ namespace Servicios
             SqlConnection sqlCon = new SqlConnection();
             try
             {
-                if (transaccionesAutorizadosRedLocal.ModuloSalida != string.Empty)
+                if (transaccionesAutorizadosRedLocal.ModuloSalida != "NULL")
                 {
                     sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
                     string cadena = ("INSERT INTO T_TransaccionesAutorizadosRed (IdTransaccion, CarrilEntrada,  ModuloEntrada, IdEstacionamiento,IdTarjeta," +

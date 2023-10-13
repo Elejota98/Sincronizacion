@@ -47,8 +47,8 @@ namespace Controlador
 
                     Mapeo(transaccionesAutorizadosRedLocal, transaccionesAutorizadosRed);
 
-                    transaccionesAutorizadosRed.IdEstacionamiento8 = 0;
-                    transaccionesAutorizadosRed.IdEstacionamiento9 = 1;
+                    transaccionesAutorizadosRed.IdEstacionamiento8 = 1;
+                    transaccionesAutorizadosRed.IdEstacionamiento9 = 0;
                     transaccionesAutorizadosRed.IdEstacionamiento10 =0;
                     transaccionesAutorizadosRed.IdEstacionamiento11 = 0;
                     transaccionesAutorizadosRed.IdEstacionamiento12 = 0;
