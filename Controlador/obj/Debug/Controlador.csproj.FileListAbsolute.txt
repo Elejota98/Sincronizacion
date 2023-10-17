@@ -20,3 +20,14 @@ D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.Core
 D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.dll
 D:\PROYECTOS\LJ\SincronizacionUnab\Controlador\obj\Debug\Controlador.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Controlador.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Controlador.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Modelo.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Servicios.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Modelo.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\bin\Debug\Servicios.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\obj\Debug\Controlador.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Controlador\obj\Debug\Controlador.pdb

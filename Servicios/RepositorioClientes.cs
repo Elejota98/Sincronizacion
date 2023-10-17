@@ -45,7 +45,7 @@ namespace Servicios
                     "Vendedor, CupoCredito,ActividadEconomica,ResponsabilidadFiscal,Regimen,Rut,Fecha,Estado)" +
                     "VALUES(" + clientes.Identificacion + ",'" + clientes.TipoPersona + "', '" + clientes.TipoDocumento + "', '" + clientes.NombreApellidos + "', '" + clientes.RazonSocial + "'," +
                     "'" + clientes.Empresa + "', '" + clientes.CodigoSucursal + "', '" + clientes.Direccion + "', '" + clientes.Telefono + "', '" + clientes.Email + "', '" + clientes.IdCiudad + "', '" + clientes.Vendedor + "'," +
-                    "'" + clientes.CupoCredito + "', '" + clientes.ActividadEconomica + "','" + clientes.ResponsabilidadFiscal + "' ,'" + clientes.Regimen + "', NULL, '" + clientes.Fecha.ToString("yyyy-MM-dd HH:mm:ss") + "', 1)");
+                    "'" + clientes.CupoCredito + "', '" + clientes.ActividadEconomica + "','" + clientes.ResponsabilidadFiscal + "' ,'" + clientes.Regimen + "', NULL, '" + clientes.Fecha.ToString("yyyy-dd-MM HH:mm:ss") + "', 1)");
                 SqlCommand comando = new SqlCommand(cadena, sqlCon);
                 sqlCon.Open();
                 comando.ExecuteNonQuery();

@@ -10,3 +10,9 @@ D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.AssemblyRefere
 D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.dll
 D:\PROYECTOS\LJ\SincronizacionUnab\Modelo\obj\Debug\Modelo.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\bin\Debug\Modelo.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\bin\Debug\Modelo.pdb
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\obj\Debug\Modelo.dll
+D:\PROYECTOS\PARQUEARSE\Sincronizacion\Modelo\obj\Debug\Modelo.pdb
