@@ -122,6 +122,7 @@ namespace Servicios
             try
             {
                 pagosFE.Sincronizacion = true;
+                pagosFE.Estado = false;
                 sqlCon = RepositorioConexion.getInstancia().CrearConexionNubeFacturacionElectronica();
                 string cadena = ("INSERT INTO T_Pagos (NumeroDocumento, NumeroFactura, Prefijo, Total, IdEstacionamiento, IdTipoPago, FechaPago, Imagen, Estado, FechaSolicitud)" +
                     "VALUES ('"+pagosFE.Identificacion+"', '"+pagosFE.NumeroFactura+"', '"+pagosFE.IdModulo+"', '"+pagosFE.Total+"',"+pagosFE.IdEstacionamiento+" , '"+pagosFE.IdTipoPago+"', '"+pagosFE.FechaPago.ToString("yyyy-MM-dd HH:mm:ss") +"', NULL," +

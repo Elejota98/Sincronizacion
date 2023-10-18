@@ -93,6 +93,26 @@ namespace Servicios
             SqlConnection sqlCon = new SqlConnection();
             try
             {
+                if(facturasContingencia.IdTipoPago==1 && facturasContingencia.IdTipoVehiculo == 1)
+                {
+                    facturasContingencia.IdTipoVehiculo = 1;
+                }
+                if(facturasContingencia.IdTipoPago==1 && facturasContingencia.IdTipoVehiculo == 2)
+                {
+                    facturasContingencia.IdTipoVehiculo = 2;
+                }
+                if(facturasContingencia.IdTipoPago==2 && facturasContingencia.IdTipoVehiculo == 1)
+                {
+                    facturasContingencia.IdTipoVehiculo = 4;
+                }
+                if(facturasContingencia.IdTipoPago==2 && facturasContingencia.IdTipoVehiculo == 2)
+                {
+                    facturasContingencia.IdTipoVehiculo = 5;
+                }
+                if(facturasContingencia.IdTipoPago==3 && facturasContingencia.IdTipoVehiculo == 1)
+                {
+                    facturasContingencia.IdTipoVehiculo = 6;
+                }
                 sqlCon = RepositorioConexion.getInstancia().CrearConexionNube();
                 string cadena = "INSERT INTO T_FacturasContingencia (IdModulo, IdEstacionamiento, FechaPago, Subtotal, Iva, Total, Prefijo, IdTipoPago, NumeroFactura, Observaciones, " +
                     "IdTipoVehiculo,IdentificacionCliente, DocumentoUsuario, Sincronizacion)" +
