@@ -39,6 +39,5 @@ D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\bin\Debug\Controlador.
 D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\bin\Debug\Modelo.pdb
 D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\bin\Debug\Servicios.pdb
 D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\obj\Debug\SincronizacionUnab.csproj.AssemblyReference.cache
-D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\obj\Debug\SincronizacionUnab.csproj.SuggestedBindingRedirects.cache
 D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\obj\Debug\SincronizacionUnab.csproj.CoreCompileInputs.cache
 D:\PROYECTOS\PARQUEARSE\Sincronizacion\SincronizacionUnab\obj\Debug\SincronizacionUnab.csproj.CopyComplete

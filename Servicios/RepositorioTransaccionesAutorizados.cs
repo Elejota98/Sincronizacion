@@ -162,9 +162,14 @@ namespace Servicios
             {
                 sqlCon = RepositorioConexion.getInstancia().CrearConexionLocal();
                 string cadena = ("UPDATE T_TransaccionesAutorizadosRed SET Sincronizacion = 1 WHERE IdEstacionamiento = '"+transaccionesAutorizadosRedLocal.IdEstacionamiento+"'" +
-                    " AND FechaEntrada < DATEADD(MINUTE, -5, GETDATE()) AND ModuloSalida IS NULL");
+                    " AND  FechaEntrada < DATEADD(MINUTE, -30, GETDATE()) AND FechaSalida < DATEADD(MINUTE,-10,GETDATE()) AND Sincronizacion=0");
                 SqlCommand comando = new SqlCommand(cadena, sqlCon);
                 sqlCon.Open();
+                comando.ExecuteNonQuery();
+
+                string cadena1 = ("UPDATE T_TransaccionesAutorizadosRed SET Sincronizacion = 1 WHERE IdEstacionamiento = '" + transaccionesAutorizadosRedLocal.IdEstacionamiento + "'" +
+                    " AND FechaEntrada < DATEADD(MINUTE, -10, GETDATE()) AND Sincronizacion=0 AND ModuloSalida IS NULL");
+                comando = new SqlCommand(cadena1, sqlCon);
                 comando.ExecuteNonQuery();
                 rta = "OK";
             }
